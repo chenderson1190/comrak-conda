@@ -1,0 +1,23 @@
+package:
+  name: "comrak-conda"
+  version: 0.0.1
+
+source:
+  git_url: https://github.com/chenderson1190/comrak-conda
+
+build:
+  number: 1
+
+requirements:
+  build:
+    - {{ compiler('rust') }}
+    - {{ compiler('c') }} # [not win]
+    - {{ compiler('m2w64_c') }} # [win]
+
+test:
+  commands:
+   - comrak --help
+
+about:
+  home: https://github.com/chenderson1190/comrak-conda
+  summary: "A Conda Package of comrak."
